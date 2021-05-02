@@ -1,6 +1,10 @@
 import React from "react";
 
-interface ButtonProps {
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   color?: string;
 }
 
@@ -12,10 +16,12 @@ const colors = {
 export const Button: React.FC<ButtonProps> = ({
   children,
   color = "white",
+  ...props
 }) => {
   return (
     <button
       className={`py-2.5 px-6 rounded-lg ${colors[color]} font-bold shadow-sm focus:outline-none focus:ring transition`}
+      {...props}
     >
       {children}
     </button>
