@@ -1,4 +1,5 @@
 import React from "react";
+import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 
 interface LayoutProps {
@@ -12,13 +13,14 @@ export const Layout: React.FC<LayoutProps> = ({
   className,
 }) => {
   return (
-    <div>
+    <div >
       <Navbar />
       <main
         className={`${width ?? "container"} px-5 mx-auto mt-12 ${className}`}
       >
         {children}
       </main>
+      <Footer/>
     </div>
   );
 };
