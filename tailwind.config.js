@@ -1,15 +1,17 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-  },
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  mode: "jit",
+  purge: ["./{components, pages}/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      colors: {
-        'accent-1': '#333',
-      },
+    colors: {
+      black: "#000000",
+      darkGray: "#4B5362",
+      gray: "#8B929F",
+      lightGray: "#EDF0F4",
+      snow: "#F6F7FA",
+      white: "#FFFFFF",
+      transparent: "transparent",
     },
   },
   variants: {},
   plugins: [],
-}
+};

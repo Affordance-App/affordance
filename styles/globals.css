@@ -1,0 +1,29 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-size: 14px;
+    @apply text-black antialiased;
+  }
+
+  h4 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  p,
+  span,
+  button,
+  div {
+    line-height: 22px;
+  }
+
+  .small {
+    font-size: 12px;
+  }
+}
