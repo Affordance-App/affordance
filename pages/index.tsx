@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "../components/Button";
+import { Input } from "../components/Input";
 import { Layout } from "../components/Layout";
 import { supabase } from "../lib/supabase";
 
@@ -15,11 +16,10 @@ const Index: React.FC = () => {
         }}
       >
         <div className="flex items-center space-x-2">
-          <input
+          <Input
             type="email"
             placeholder="Email Address"
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-snow border border-lightGray rounded-lg placeholder-text-gray text-black px-4 py-2.5 w-96 focus:outline-none"
             value={email}
             required
           />
