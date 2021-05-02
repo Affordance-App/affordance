@@ -5,7 +5,7 @@ import { supabase } from "../lib/supabase";
 const Index: React.FC = () => {
   const [email, setEmail] = useState("");
   return (
-    <Layout>
+    <Layout width="max-w-lg">
       <h4>Sign in to Affordance</h4>
       <form
         onSubmit={async (e) => {

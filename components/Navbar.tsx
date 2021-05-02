@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Button } from "./Button";
 
 interface NavbarProps {}
 
@@ -33,12 +34,8 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
           </a>
         </li>
         <li className="flex items-center space-x-3">
-          <button className="py-2.5 px-6 rounded-lg border border-lightGray font-bold shadow-sm focus:outline-none focus:ring transition">
-            Apply
-          </button>
-          <button className="py-2.5 px-6 rounded-lg bg-black text-white font-bold shadow-sm focus:outline-none focus:ring transition">
-            Sign In
-          </button>
+          <Button>Apply</Button>
+          <Button color="black">Sign In</Button>
         </li>
       </ul>
     </nav>
