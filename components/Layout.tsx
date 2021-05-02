@@ -13,7 +13,7 @@ export const Layout: React.FC<LayoutProps> = ({
   className,
 }) => {
   return (
-    <div >
+    <div className="flex flex-col h-screen">
       <Navbar />
       <main
         className={`${width ?? "container"} px-5 mx-auto mt-12 ${className}`}
