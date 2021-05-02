@@ -1,18 +1,20 @@
 import React, { useState } from "react";
+import { useSupabase } from "use-supabase";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Layout } from "../components/Layout";
-import { supabase } from "../lib/supabase";
 
 const Index: React.FC = () => {
   const [email, setEmail] = useState("");
+  const { auth } = useSupabase();
+
   return (
     <Layout width="max-w-xl" className="mt-36">
       <h4 className="mb-4">Sign in to Affordance</h4>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          await supabase.auth.signIn({ email });
+          await auth.signIn({ email });
         }}
       >
         <div className="flex items-center space-x-2">

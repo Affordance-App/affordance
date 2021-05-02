@@ -2617,6 +2617,13 @@ use-subscription@1.5.1:
   dependencies:
     object-assign "^4.1.1"
 
+use-supabase@^1.0.1, use-supabase@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/use-supabase/-/use-supabase-1.0.3.tgz#c31274088697dfc47d05338ca21ffb8899c8bef7"
+  integrity sha512-962R4I3gzziTY9/aGQu9zfAo2O+9BZHvRvddXdjPgwPJ6WYMw+OTQadmysvYzjdLOyTQfgMTB8i18A64ytjJAg==
+  dependencies:
+    use-supabase "^1.0.1"
+
 utf-8-validate@^5.0.2:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/utf-8-validate/-/utf-8-validate-5.0.4.tgz#72a1735983ddf7a05a43a9c6b67c5ce1c910f9b8"
