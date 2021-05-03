@@ -1,7 +1,7 @@
 import React from "react";
 
 interface InputProps extends React.ComponentPropsWithRef<"input"> {
-  textarea?: string;
+  textarea?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -10,7 +10,9 @@ export const Input: React.FC<InputProps> = ({
   ...props
 }) => {
   return React.createElement(textarea ? "textarea" : "input", {
-    className: `bg-snow border border-lightGray rounded-lg placeholder-text-gray text-black px-4 py-2.5 focus:outline-none w-full ${className}`,
+    className: `bg-snow border border-lightGray rounded-lg placeholder-text-gray text-black px-4 py-2.5 focus:outline-none w-full ${className} ${
+      textarea ? "resize-none" : ""
+    }`,
     ...props,
   });
 };
