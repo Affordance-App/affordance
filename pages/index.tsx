@@ -9,7 +9,7 @@ const Index: React.FC = () => {
   const { auth } = useSupabase();
 
   return (
-    <Layout width="max-w-xl" className="mt-36">
+    <Layout width="max-w-xl h-screen" className="mt-36">
       <h4 className="mb-4">Sign in to Affordance</h4>
       <form
         onSubmit={async (e) => {
