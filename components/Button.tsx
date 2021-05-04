@@ -1,11 +1,13 @@
 import React from "react";
 
+type ColorUnion = "black" | "white";
+
 interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  color?: string;
+  color?: ColorUnion;
 }
 
 const colors = {
