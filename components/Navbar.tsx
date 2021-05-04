@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
           </a>
         </li>
         <li className="flex items-center space-x-3">
-          <Button>Apply</Button>
+          <Link href="/apply"><Button>Apply</Button></Link>
           <Button color="black">Sign In</Button>
         </li>
       </ul>

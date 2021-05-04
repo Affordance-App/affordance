@@ -6,7 +6,7 @@ import { Layout } from "../components/Layout";
 
 const Apply: React.FC = () => {
   return (
-    <Layout width="max-w-2xl w-full">
+    <Layout width="max-w-2xl w-full h-screen">
       <h4>Apply for Affordance</h4>
       <p className="text-gray">One application to attract multiple investors</p>
       <Formik

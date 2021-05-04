@@ -20,9 +20,9 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`py-2.5 px-6 rounded-lg ${colors[color]} font-bold shadow-sm focus:outline-none focus:ring transition`}
+      className={`py-2.5 px-6 rounded-lg flex ${colors[color]} font-bold shadow-sm focus:outline-none focus:ring transition`}
       {...props}
-    >
+    > 
       {children}
     </button>
   );
