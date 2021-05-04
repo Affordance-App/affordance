@@ -5,7 +5,7 @@ interface ButtonProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  color?: string;
+  color?: keyof typeof colors;
 }
 
 const colors = {
