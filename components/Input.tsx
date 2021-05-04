@@ -1,12 +1,15 @@
 import React from "react";
+import { useField } from "formik";
 
 interface InputProps extends React.ComponentPropsWithRef<"input"> {
   textarea?: boolean;
+  error?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
   className,
   textarea,
+  error,
   ...props
 }) => {
   return React.createElement(textarea ? "textarea" : "input", {
@@ -15,4 +18,26 @@ export const Input: React.FC<InputProps> = ({
     }`,
     ...props,
   });
+};
+
+export const InputField: React.FC<InputProps> = ({
+  textarea,
+  error: _,
+  ...props
+}) => {
+  const [field, meta] = useField(props as any);
+
+  return (
+    <div className={`h-full w-full`}>
+      <Input
+        error={meta.touched && !!meta.error}
+        textarea={textarea}
+        {...field}
+        {...props}
+      />
+      {meta.touched && !!meta.error ? (
+        <p className="mt-1 small text-primary">{JSON.stringify(meta.error)}</p>
+      ) : null}
+    </div>
+  );
 };
