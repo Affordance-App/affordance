@@ -8,7 +8,7 @@ interface ButtonProps
   color?: keyof typeof colors;
 }
 
-const colors = {
+export const colors = {
   black: "bg-black text-white",
   white: "bg-white border border-lightGray",
 };
