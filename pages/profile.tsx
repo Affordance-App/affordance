@@ -1,13 +1,17 @@
 import Link from 'next/link'
 import { supabase } from '../lib/supabase'
+import { Layout } from "../components/Layout";
+import { Button } from "../components/Button";
 
 export default function Profile({ user }) {
   return (
     <>
+      <Layout className="h-screen">
       <Link href="/">
-        <a>Index</a>
+        <Button>Home</Button>
       </Link>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+      </Layout>
     </>
   )
 }

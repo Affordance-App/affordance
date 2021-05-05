@@ -1,93 +1,54 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
+import { Button } from "../components/Button";
+import { Input } from "../components/Input";
+import { useAuth } from "../lib/useAuth";
 
 export default function Auth() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = async (type, email, password) => {
-    const { error, user } =
-      type === 'LOGIN'
-        ? await supabase.auth.signIn({ email, password })
-        : await supabase.auth.signUp({ email, password });
-    if (!error && !user) alert('Check your email for the login link!');
-    if (error) alert(error.message);
-  };
+  const { user } = useAuth();
 
   async function handleOAuthLogin(provider) {
     let { error } = await supabase.auth.signIn({ provider });
     if (error) alert(error.message);
   }
 
-  async function forgotPassword() {
-    const email = prompt('Please enter your email:');
-    if (email === null || email === '')
-      return alert('You must enter your email.');
 
-    const { error } = await supabase.auth.api.resetPasswordForEmail(email);
-    if (error) return alert(error.message);
-    alert('Password recovery email has been sent.');
-  }
 
   return (
     <div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          placeholder="Your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <button
-          onClick={() => {
-            handleLogin('SIGNUP', email, password);
-          }}
-        >
-          Sign up
-        </button>
-        <button
-          onClick={() => {
-            handleLogin('LOGIN', email, password);
-          }}
-        >
-          {password.length ? 'Sign in' : 'Send magic link'}
-        </button>
-      </div>
-
-      <div>
-        <button onClick={forgotPassword}>Forgot your password?</button>
-      </div>
-
-      <div>
-        <hr />
-        <span>Or continue with</span>
-
-        <div>
-          <div>
-            <button onClick={() => handleOAuthLogin('github')} type="button">
-              GitHub
-            </button>
-          </div>
-          <div>
-            <button onClick={() => handleOAuthLogin('google')} type="button">
-              Google
-            </button>
-          </div>
+       <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await user.signIn({ email });
+              }}>
+        <div className="flex items-center space-x-2">
+          <Input
+            type="email"
+            placeholder="Email Address"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            required
+          />
+          <Button type="submit" color="black">
+            Continue
+          </Button>
         </div>
-      </div>
+        <div className="grid grid-cols-2 items-center gap-2 mt-5">
+          <Button onClick={() => handleOAuthLogin('google')} type="button"> Join with Google</Button>
+          <Button onClick={() => handleOAuthLogin('github')} type="button">
+            <img src="static/github.svg" className="px-2 py-1" /> Or Join with GitHub</Button>
+        </div>
+        <p className="small mt-3 text-gray">
+          By logging in, you agree to the{" "}
+          <a href="#" className="text-black">
+            Terms of Service
+          </a>
+          .
+        </p>
+        </form>
+
+  
     </div>
   );
 }

@@ -35,7 +35,7 @@ export default function Explore() {
 
 
   return (
-    <Layout width="max-w-4xl h-screen">
+    <Layout width="w-full h-screen max-w-screen-lg  ">
      
       <div className="flex justify-between"> 
       <div className="relative max-w-xs text-gray-600 focus-within:text-gray-800">
@@ -48,7 +48,7 @@ export default function Explore() {
           placeholder="Search for something" />
       </div>
 
-      <div className="flex space-x-3">
+      <div className="flex space-x-3 ">
         <Button imgUrl="/static/rev.svg"  color="white">Revenue</Button>
         <Button imgUrl="/static/filter.svg" color="white">Stages</Button>
         <Button imgUrl="/static/filter.svg" color="white">Topics</Button>
@@ -57,10 +57,12 @@ export default function Explore() {
       </div>
       
       <div className="grid gap-3 mt-8 mx-auto">
-            
-        <Button onClick={() => supabase.auth.signOut()} color = "black" > Sign Out</Button>
-       <Link href="/profile">
-          <a>SSR example with getServerSideProps</a> 
+        <div className="w-1/2">
+          <Button onClick={() => supabase.auth.signOut()} color="black"  > Sign Out</Button>
+        </div>    
+      
+        <Link href="/profile">
+          <a>SSR example with   <b> getServerSideProps  ⚡  </b> </a>  
       </Link>
         <div>
        <div>
