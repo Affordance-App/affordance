@@ -10,9 +10,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
 
       - name: Install modules
-        uses: yarn
+        uses: npm install
 
       - name: Run Tests
-        run: yarn test:ci
+        run: npm run test:ci
