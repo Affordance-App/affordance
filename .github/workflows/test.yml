@@ -1,21 +1,11 @@
-name: Tests
-
+name: CI Test
 on: push
-
 jobs:
-  test-suite:
-    name: Check Codebase for Test Suite Failures
+  build:
     runs-on: ubuntu-latest
-  
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.5
-
-      - name: Install modules
-        uses: npm install
-
-      - name: Run Tests
-        run: npm run test:ci
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Run tests
+      run: yarn test:ci
