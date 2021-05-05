@@ -7,12 +7,12 @@ jobs:
     name: Check Codebase for Test Suite Failures
     runs-on: ubuntu-latest
   
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    
-    - name: Install modules
-      uses: yarn
-    
-    - name: Run Tests
-      run: yarn test:ci
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install modules
+        uses: yarn
+
+      - name: Run Tests
+        run: yarn test:ci
