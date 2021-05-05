@@ -6,6 +6,7 @@ interface ButtonProps
     HTMLButtonElement
   > {
   color?: keyof typeof colors;
+  imgUrl?: string;
 }
 
 const colors = {
@@ -15,6 +16,7 @@ const colors = {
 
 export const Button: React.FC<ButtonProps> = ({
   children,
+  imgUrl,
   color = "white",
   ...props
 }) => {
@@ -24,6 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     > 
       {children}
+      <img src={imgUrl} className="p-1"/>
     </button>
   );
 };
