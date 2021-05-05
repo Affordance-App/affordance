@@ -9,7 +9,7 @@ interface ButtonProps
   imgUrl?: string;
 }
 
-const colors = {
+export const colors = {
   black: "bg-black text-white",
   white: "bg-white border border-lightGray",
 };
