@@ -35,7 +35,7 @@ export default function Explore() {
 
 
   return (
-    <Layout width="w-full h-screen max-w-screen-lg  ">
+    <Layout width="w-full h-screen max-w-screen-lg" signedIn={user}>
      
       <div className="flex justify-between"> 
       <div className="relative max-w-xs text-gray-600 focus-within:text-gray-800">
