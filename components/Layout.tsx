@@ -20,6 +20,7 @@ export const Layout: React.FC<LayoutProps> = ({
       >
         {children}
       </main>
+      <Footer/>
     </div>
   );
 };
