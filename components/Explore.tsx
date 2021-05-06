@@ -7,6 +7,7 @@ import { Layout } from './Layout';
 import { useAuth } from "../lib/useAuth";
 import useSWR from 'swr';
 import Link from "next/link";
+import Feed from './Feed';
 
 const fetcher = (url) =>
   fetch(url, {
@@ -33,7 +34,6 @@ export default function Explore() {
   }
 
 
-
   return (
     <Layout width="w-full h-screen max-w-screen-lg" signedIn={user}>
      
@@ -45,7 +45,7 @@ export default function Explore() {
         <Input
           className="w-full pl-8 text-gray-700 placeholder-gray-600 bg-gray-200 rounded-lg shadow-md focus:bg-white"
           type="text"
-          placeholder="Search for something" />
+          placeholder="Search for Startups" />
       </div>
 
       <div className="flex space-x-3 ">
@@ -61,6 +61,8 @@ export default function Explore() {
           <Button onClick={() => supabase.auth.signOut()} color="black"  > Sign Out</Button>
         </div>    
       
+        <Feed user={user}/>
+        
         <Link href="/profile">
           <a>SSR example with   <b> getServerSideProps  ⚡  </b> </a>  
       </Link>
