@@ -50,10 +50,10 @@ export default function Feed() {
   }
 
   return (
-    <div className="w-full bg-red" >
+    <div className="w-full " >
       
-     <div className="shadow overflow-hidden rounded-md" >
-        <div className="grid grid-cols-3  grid-rows-3 gap-4 m-20 my-5">
+     <div className="overflow-hidden" >
+        <div className="grid grid-cols-2 gap-4  my-5">
           
           {todos.map((todo) => ( 
             <Project key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} />

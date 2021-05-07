@@ -60,22 +60,22 @@ export const Project: React.FC<ProjectProps> = ({  todo, onDelete  }) => {
               onClick={(e) => {
               e.preventDefault()
               toggle() }}
-              className="text-sm block leading-5 truncate">
+              className="text-sm  leading-5 truncate">
               <h2 className="text-lg uppercase font-bold">{todo.task}</h2>
-              <p className="text-color-gray w-1/2">A student-run mobile/desktop OSS news aggregator, social media, and journalism app.</p>
+              <p className="text-color-gray w-80 truncate">A student-run mobile/desktop OSS news aggregator, social media, and journalism app.</p>
               <Checkbox isChecked={isCompleted} onChange={handleCheck}/>  
           </div>
         </div>
       <img
         style={{  borderRadius: "8px" }}
-        width="320" height="100"
+        width="400" height="120"
         src="https://github.com/coderinblack08/presage/raw/develop/web/public/static/github-thumbnail.png" />
        </div>
         <div>
        
           
         </div>
-        <button
+        {/* <button
           onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
@@ -90,7 +90,7 @@ export const Project: React.FC<ProjectProps> = ({  todo, onDelete  }) => {
               clipRule="evenodd"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
     </div>
   )

@@ -12,8 +12,6 @@ module.exports = {
       transparent: "transparent",
     },
   },
-  variants: {
-         gridTemplateColumns: true,
-  },
+  variants: {},
   plugins: [],
 };
