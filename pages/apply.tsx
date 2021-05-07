@@ -3,21 +3,18 @@ import React, { useContext, createContext, useState} from "react";
 import { Button } from "../components/Button";
 import { Input, InputField } from "../components/Input";
 import { Layout } from "../components/Layout";
-import Link from "next/link";
-import { supabaseClient } from '../lib/supabase'
+import Link from "next/link"; 
 import { Context } from "../lib/useContext";
+import { supabaseClient } from "../lib/supabase";
+import { useAuth } from "../lib/useAuth";
 
-type User = {
-  id?: boolean
-  user: any
-}
-
-export default function  Apply({ user } : User ) {
-  
-   const [newTaskText, setNewTaskText] = useContext(Context);
-  const [todos, setTodos] = useState([])
+export default function Apply() {
+  const { user } = useAuth();
+  const [newTaskText, setNewTaskText] = useState('')
+  const {value, setValue} =  useContext(Context);
+  const [todos, setTodos] = useState([]);
   const [errorText, setError] = useState('')
-  
+
   const addTodo = async (taskText: string) => {
     let task = taskText.trim()
     if (task.length) {
@@ -28,7 +25,7 @@ export default function  Apply({ user } : User ) {
       if (error) setError(error.message)
       else setTodos([...todos, todo])
     }
-  }
+}
   return (
     <Layout width="max-w-2xl w-full h-screen">
       <h4>Apply for Affordance</h4>
@@ -50,10 +47,10 @@ export default function  Apply({ user } : User ) {
               <InputField
                 placeholder="Name"
                 name="name"
-                value={newTaskText}
-                onChange={(e) => {
-                setError('')
-                setNewTaskText(e.target.value)
+                  value={newTaskText}
+          onChange={(e) => {
+            setError('')
+            setNewTaskText(e.target.value)
           }}
               />
               <InputField
@@ -74,8 +71,9 @@ export default function  Apply({ user } : User ) {
             />
              <Link href="/">
               <Button
-                onClick={() => addTodo(newTaskText)}
-                color="black">Submit Application</Button>
+              // onClick={() => setValue("Button B")}
+              onClick={() => addTodo(newTaskText)}
+              color="black">Submit Application</Button>
             </Link>
             <p className="text-gray small">
               We’ll get back to you in a{" "}
@@ -88,4 +86,3 @@ export default function  Apply({ user } : User ) {
   );
 };
 
- 

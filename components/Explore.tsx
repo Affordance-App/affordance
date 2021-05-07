@@ -61,6 +61,7 @@ export default function Explore() {
           <Button onClick={() => supabase.auth.signOut()} color="black"  > Sign Out</Button>
         </div>    
       
+        
         <Feed user={user}/>
         
         <Link href="/profile">

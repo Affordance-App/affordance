@@ -14,7 +14,7 @@ const Index: React.FC = () => {
   
     {!user ? (
         <div>
-          <Layout width="max-w-xl" className="h-screen mt-36">
+          <Layout width="max-w-xl" className="h-screen mt-36" >
         
             <h4 className="mb-4">Sign in to Affordance</h4>
           
@@ -23,6 +23,7 @@ const Index: React.FC = () => {
           </Layout>
         </div>) : (
         <div>
+          
             <Explore />            
         </div>
       )}

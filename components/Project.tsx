@@ -2,7 +2,7 @@ import { supabaseClient } from '../lib/supabase'
 import React, { useState, useEffect } from 'react'
 
 interface ProjectProps {
-
+ 
   todo?: any;
   onDelete?: any;
 
@@ -50,28 +50,30 @@ export const Project: React.FC<ProjectProps> = ({  todo, onDelete  }) => {
 
   return (
     <div
-      onClick={(e) => {
-        e.preventDefault()
-        toggle()
-      }}
-      className="w-full block cursor-pointer rounded p-2 bg-white hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out"
+      className="w-full flex cursor-pointer rounded p-2  hover:bg-gray-200 focus:outline-none focus:bg-gray-200 transition duration-150 ease-in-out"
     >
-      <div className="flex items-center  px-4 py-4 sm:px-6">
-        <div className="min-w-0 flex-1 flex items-center">
-          <div className="text-sm block leading-5 truncate">
-            <p className="text-lg uppercase font-medium">{todo.task}</p> 
-            <p>{todo.description}</p></div>
+      <div className="flex   items-center ">
+        
+      <div className="block">
+       <div className="flex items-center">
+            <div
+              onClick={(e) => {
+              e.preventDefault()
+              toggle() }}
+              className="text-sm block leading-5 truncate">
+              <h2 className="text-lg uppercase font-bold">{todo.task}</h2>
+              <p className="text-color-gray w-1/2">A student-run mobile/desktop OSS news aggregator, social media, and journalism app.</p>
+              <Checkbox isChecked={isCompleted} onChange={handleCheck}/>  
+          </div>
         </div>
-  <div className="block">
-       
       <img
         style={{  borderRadius: "8px" }}
-        width="420" height="120"
+        width="320" height="100"
         src="https://github.com/coderinblack08/presage/raw/develop/web/public/static/github-thumbnail.png" />
-    </div>
+       </div>
         <div>
        
-           <Checkbox isChecked={isCompleted} onChange={handleCheck}/>
+          
         </div>
         <button
           onClick={(e) => {
