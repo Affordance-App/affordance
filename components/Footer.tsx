@@ -11,9 +11,9 @@ export const Footer: React.FC = () => {
         <ul className="space-y-4">
           <p className="text-base font-bold text-gray tracking-wide uppercase">company</p>  
           <li>Pricing</li>
-          <li>Our Team</li>
           <li>Blog</li>
           <li>Status <p className="text-indigo-300 text-">operational</p></li>
+          <li><a href="/assets">Assets</a></li>
         </ul>
         
         <ul className="space-y-4">

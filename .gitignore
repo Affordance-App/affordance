@@ -32,3 +32,6 @@ yarn.lock
 
 # vercel
 .vercel
+
+#prettier
+.prettierrc

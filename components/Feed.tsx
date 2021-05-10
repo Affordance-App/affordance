@@ -28,17 +28,6 @@ export default function Feed() {
     else setTodos(todos)
   }
 
-  const addTodo = async (taskText: string) => {
-    let task = taskText.trim()
-    if (task.length) {
-      let { data: todo, error } = await supabaseClient
-        .from('projects')
-        .insert({ task, user_id: user.id })
-        .single()
-      if (error) setError(error.message)
-      else setTodos([...todos, todo])
-    }
-  }
 
   const deleteTodo = async (id: any) => {
     try {

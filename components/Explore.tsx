@@ -62,7 +62,7 @@ export default function Explore() {
         </div>    
       
 
-        <Feed user={user}/>
+        <Feed />
         
         <Link href="/profile">
           <a>SSR example with   <b> getServerSideProps  ⚡  </b> </a>  

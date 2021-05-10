@@ -1,6 +1,8 @@
 {
   "tabWidth": 2,
-  "trailingComma": "es5",
-  "singleQuote": false,
-  "useTabs": false
+  "useTabs": false,
+  "editor.formatOnSave": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
