@@ -16,7 +16,7 @@ export default function Assets() {
       <p className="text-gray  m-10">Identity</p>
 
       <div className="grid grid-cols-2 ">
-        <div className="bg-snow p-10 m-10 rounded-xl ">
+        <div className="whitecard">
           <svg
             width="56"
             height="56"
@@ -40,7 +40,7 @@ export default function Assets() {
           </svg>
         </div>
 
-        <div className="bg-black  p-10 m-10 rounded-xl ">
+        <div className="blackcard">
           <svg
             width="56"
             height="56"
@@ -65,7 +65,7 @@ export default function Assets() {
         </div>
       </div>
 
-      <div className="bg-black p-10 m-10 rounded-xl ">
+      <div className="blackcard ">
         <svg
           width="233"
           height="56"
@@ -93,7 +93,7 @@ export default function Assets() {
         </svg>
       </div>
 
-      <div className="bg-snow p-10 m-10 rounded-xl ">
+      <div className="whitecard">
         <svg
           width="233"
           height="56"
@@ -122,23 +122,22 @@ export default function Assets() {
       </div>
 
       <p className="text-gray  m-10">Typography</p>
-      <div className="bg-snow p-10 m-10 rounded-xl ">
+      <div className="whitecard">
         <div className="text-gray bg-snow justify-center font-bold text-xl">
-          {" "}
-          Inter UI{" "}
+          {" "}Inter UI{" "}
         </div>
       </div>
 
       <div className="grid grid-cols-3">
-        <div className="bg-black text-gray p-10 m-10 rounded-xl">Black</div>
-        <div className="bg-darkGray text-gray p-10 m-10 rounded-xl">
+        <div className="blackcard text-gray">Black</div>
+        <div className="bg-darkGray text-gray whitecard">
           Dark Gray
         </div>
-        <div className="bg-gray text-darkGray p-10 m-10 rounded-xl">Gray</div>
-        <div className="bg-lightGray text-gray p-10 m-10 rounded-xl">
+        <div className="bg-gray text-darkGray whitecard">Gray</div>
+        <div className="bg-lightGray text-gray whitecard">
           Light Gray
         </div>
-        <div className="bg-snow text-gray p-10 m-10 rounded-xl">Snow</div>
+        <div className="bg-snow text-gray whitecard">Snow</div>
       </div>
     </Layout>
   );

@@ -27,3 +27,12 @@
     font-size: 12px;
   }
 }
+
+@layer components {
+  .blackcard {
+    @apply bg-black p-10 m-10 rounded-xl;
+  }
+  .whitecard {
+    @apply bg-snow p-10 m-10 rounded-xl;
+  }
+}
