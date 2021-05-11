@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm package-lock.json & rm -rf node_modules/ dist/ .next/",
-    "test": "jest --watch --detectOpenHandles", 
+    "test": "jest --watch --detectOpenHandles",
     "test:ci": "jest --force-exit --detectOpenHandles"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "next": "^10.0.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hot-toast": "^1.0.2",
     "swr": "^0.5.6",
     "use-supabase": "^1.0.3"
   },

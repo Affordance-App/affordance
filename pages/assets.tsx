@@ -2,25 +2,22 @@ import React, { useRef, useState } from 'react';
 import { Layout } from "../components/Layout";
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../tailwind.config.js'
-
-
-
-type FileType = {
-  png: string,
-  svg: string,
-};
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const CopyToClip = ({ text }) =>  {
   const myRef = React.useRef(null);
   const [data, setData] = React.useState(text);
-  React.useEffect(() => setData(text), [text]);
+   const notify = () => toast('Copied to clipboard', { icon: '📄'});
 
+  React.useEffect(() => setData(text), [text]);
+ 
   React.useEffect(() => {
     if (myRef.current && data) {
       myRef.current.select();
       document.execCommand("copy");
+       notify();
       setData(null);
+     
     }
   }, [data, myRef.current]);
 
@@ -28,11 +25,11 @@ const CopyToClip = ({ text }) =>  {
 };
 
 export default function Assets() {
+// copy text from tailwind css config 
   const fullConfig = resolveConfig(tailwindConfig)
   const full = fullConfig.theme.colors
   const [copySuccess, setCopySuccess] = useState('');
- // const colours = ["#1B1D22", "#4B5362", '#8B929F', '#EAEDF3', '#F6F7FA']
-
+ //a string for colours colours = ["#1B1D22", "#4B5362", '#8B929F', '#EAEDF3', '#F6F7FA']
   const colors = {
     black: "blackcard text-gray",
     darkGray: "bg-darkGray text-gray whitecard",
@@ -41,9 +38,8 @@ export default function Assets() {
     lightGray: "bg-snow text-gray whitecard",
     white: "bg-white",
     trans: "bg-white"
-};
+  };
   
-
 
   return (
     <Layout width="max-w-2xl w-full h-screen">
@@ -165,20 +161,22 @@ export default function Assets() {
           {" "}Inter UI{" "}
         </div>
       </div>
-
+     <p className="text-gray  m-10">Palette</p>
            {/* Map between cards */}
       <div className="grid grid-cols-3">
+      
       {Object.keys(full).slice(0,5).map((text, i) => (
           <div
             // style={{ margin: "10px", cursor: "pointer", color: 'blue' }}
-            className={`cursor-pointer font-light ${colors[text]}`}
+            className={`cursor-pointer font-normal ${colors[text]}`}
             onClick={() => setCopySuccess(full[text])}
             key={i}
           >
             {text}
           </div>))}
         
-      <CopyToClip text={copySuccess} />
+        <CopyToClip text={copySuccess} />
+        <Toaster/>
 
       </div>
 
