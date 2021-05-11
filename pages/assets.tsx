@@ -1,37 +1,60 @@
 import React, { useRef, useState } from 'react';
 import { Layout } from "../components/Layout";
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../tailwind.config.js'
+
+
 
 type FileType = {
   png: string,
   svg: string,
 };
 
+
+const CopyToClip = ({ text }) =>  {
+  const myRef = React.useRef(null);
+  const [data, setData] = React.useState(text);
+  React.useEffect(() => setData(text), [text]);
+
+  React.useEffect(() => {
+    if (myRef.current && data) {
+      myRef.current.select();
+      document.execCommand("copy");
+      setData(null);
+    }
+  }, [data, myRef.current]);
+
+  return <div>{data && <textarea ref={myRef}>{data}</textarea>}</div>;
+};
+
 export default function Assets() {
-
+  const fullConfig = resolveConfig(tailwindConfig)
+  const full = fullConfig.theme.colors
   const [copySuccess, setCopySuccess] = useState('');
-  const textAreaRef = useRef(null);
+ // const colours = ["#1B1D22", "#4B5362", '#8B929F', '#EAEDF3', '#F6F7FA']
 
-  function copyToClipboard(e) {
-    textAreaRef.current.select();
-    document.execCommand('copy');
-    // This is just personal preference.
-    // I prefer to not show the whole text area selected.
-    e.target.focus();
-    setCopySuccess('Copied!');
-  };
+  const colors = {
+    black: "blackcard text-gray",
+    darkGray: "bg-darkGray text-gray whitecard",
+    gray: "bg-gray text-darkGray whitecard",
+    snow: "bg-lightGray text-gray whitecard",
+    lightGray: "bg-snow text-gray whitecard",
+    white: "bg-white",
+    trans: "bg-white"
+};
   
+
 
   return (
     <Layout width="max-w-2xl w-full h-screen">
       <div className="text-5xl text-black font-bold mx-auto text-center">
         {" "}
-        Brand Assets
+        Brand Assets 
       </div>
-      <p className="text-gray  m-10">Identity</p>
-
+      <p className="text-gray  m-10">Identity</p>         
+      
       <div className="grid grid-cols-2 ">
         <div className="whitecard">
-          <button className="visible focus:visible hover:bg-gray" onClick={copyToClipboard}>copy   {copySuccess}</button>
           <svg
             width="56"
             height="56"
@@ -143,17 +166,23 @@ export default function Assets() {
         </div>
       </div>
 
+           {/* Map between cards */}
       <div className="grid grid-cols-3">
-        <div className="blackcard text-gray">Black</div>
-        <div className="bg-darkGray text-gray whitecard">
-          Dark Gray
-        </div>
-        <div className="bg-gray text-darkGray whitecard">Gray</div>
-        <div className="bg-lightGray text-gray whitecard">
-          Light Gray
-        </div>
-        <div className="bg-snow text-gray whitecard">Snow</div>
+      {Object.keys(full).slice(0,5).map((text, i) => (
+          <div
+            // style={{ margin: "10px", cursor: "pointer", color: 'blue' }}
+            className={`cursor-pointer font-light ${colors[text]}`}
+            onClick={() => setCopySuccess(full[text])}
+            key={i}
+          >
+            {text}
+          </div>))}
+        
+      <CopyToClip text={copySuccess} />
+
       </div>
+
+  
     </Layout>
   );
 }

@@ -36,9 +36,14 @@ export default function Auth() {
         </div>
         
         <div className="grid grid-cols-2 items-center gap-2 mt-5">
-          <Button onClick={() => handleOAuthLogin('google')} type="button"> Join with Google </Button>
+          <Button onClick={() => handleOAuthLogin('google')} type="button">
+            <p className="font-medium px-1">Join with</p>Google
+            <img src="static/google.svg" className="px-2 py-1" />
+            </Button>
           <Button onClick={() => handleOAuthLogin('github')} type="button" >
-            Or use GitHub<img src="static/github.svg" className="px-2 py-1" /> </Button>
+            <p className="font-medium px-1">Or use </p> GitHub
+           <img src="static/github.svg" className="px-2 py-1" />
+          </Button>
         </div>
         <p className="small mt-3 text-gray">
           By logging in, you agree to the{" "}
