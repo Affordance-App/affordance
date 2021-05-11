@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from 'react';
 import { Layout } from "../components/Layout";
 
 type FileType = {
@@ -7,6 +7,20 @@ type FileType = {
 };
 
 export default function Assets() {
+
+  const [copySuccess, setCopySuccess] = useState('');
+  const textAreaRef = useRef(null);
+
+  function copyToClipboard(e) {
+    textAreaRef.current.select();
+    document.execCommand('copy');
+    // This is just personal preference.
+    // I prefer to not show the whole text area selected.
+    e.target.focus();
+    setCopySuccess('Copied!');
+  };
+  
+
   return (
     <Layout width="max-w-2xl w-full h-screen">
       <div className="text-5xl text-black font-bold mx-auto text-center">
@@ -17,6 +31,7 @@ export default function Assets() {
 
       <div className="grid grid-cols-2 ">
         <div className="whitecard">
+          <button className="visible focus:visible hover:bg-gray" onClick={copyToClipboard}>copy   {copySuccess}</button>
           <svg
             width="56"
             height="56"

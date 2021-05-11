@@ -14,7 +14,6 @@ export default function Auth() {
   }
 
 
-
   return (
     <div>
        <form
@@ -39,7 +38,7 @@ export default function Auth() {
         <div className="grid grid-cols-2 items-center gap-2 mt-5">
           <Button onClick={() => handleOAuthLogin('google')} type="button"> Join with Google </Button>
           <Button onClick={() => handleOAuthLogin('github')} type="button" >
-            <img src="static/github.svg" className="px-2 py-1" /> Or use GitHub</Button>
+            Or use GitHub<img src="static/github.svg" className="px-2 py-1" /> </Button>
         </div>
         <p className="small mt-3 text-gray">
           By logging in, you agree to the{" "}
