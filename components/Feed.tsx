@@ -42,7 +42,7 @@ export default function Feed() {
     <div className="w-full " >
       
      <div className="overflow-hidden" >
-        <div className="grid grid-cols-2 gap-4  my-5">
+        <div className="grid sm:grid-cols-2 grid-col-1 gap-4 justify-center  my-5">
           
           {todos.map((todo) => ( 
             <Project key={todo.id} todo={todo} onDelete={() => deleteTodo(todo.id)} />
