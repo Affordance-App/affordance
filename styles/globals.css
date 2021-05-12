@@ -30,9 +30,9 @@
 
 @layer components {
   .blackcard {
-    @apply bg-black p-10 m-10 rounded-xl;
+    @apply bg-black sm:p-10 p-4 m-4 sm:m-10 rounded-xl;
   }
   .whitecard {
-    @apply bg-snow p-10 m-10 rounded-xl;
+    @apply bg-snow sm:p-10 p-4 m-4 sm:m-10 rounded-xl;
   }
 }
