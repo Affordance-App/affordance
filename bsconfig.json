@@ -1,0 +1,36 @@
+{
+    "name": "affordance-rescript",
+    "version": "0.0.1",
+    "sources": [
+        {
+            "dir": "components/res",
+            "subdirs": true
+        },
+        {
+            "dir": "lib/res",
+            "subdirs": true
+        }
+    ],
+    "package-specs": {
+        "module": "es6",
+        "in-source": true
+    },
+    "suffix": ".bs.js",
+    "reason": {
+        "react-jsx": 3
+    },
+    "bs-dependencies": [
+        "@rescript/react"
+    ],
+    "gentypeconfig": {
+        "language": "typescript",
+        "shims": {},
+        "debug": {
+            "all": false,
+            "basic": false
+        }
+    },
+    "warnings": {
+        "error": "+101"
+    }
+}
